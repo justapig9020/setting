@@ -4,26 +4,14 @@ set expandtab
 set number
 set tags=./tags,./TAGS,tags;~,TAGS;~
 
-map <C-i> <Up>
-map <C-j> <Left>
-map <C-l> <Right>
-map <C-k> <Down>
-imap <C-i> <Up>
-imap <C-j> <Left>
-imap <C-l> <Right>
-imap <C-k> <Down>
-""nmap <S-C-l> <Esc>v<Right>
-""nmap <S-C-j> <Esc>v<Left>
-""vnoremap <S-Right> <Right>
-""vnoremap <S-Left> <Left>
-vnoremap <C-c> y
-vnoremap <C-x> d
-map <C-v> p
-imap <C-v> <Esc>pi
 
 
 syntax on
 filetype indent on 
+imap <C-k> <Esc><Up><Right>i
+imap <C-h> <Esc><Left>i
+imap <C-l> <Right>
+imap <C-j> <Esc><Down><Right>i
 
 inoremap ( ()<Esc>i
 inoremap " ""<Esc>i
