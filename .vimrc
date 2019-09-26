@@ -8,10 +8,10 @@ set tags=./tags,./TAGS,tags;~,TAGS;~
 
 syntax on
 filetype indent on 
-imap <C-k> <Esc><Up><Right>i
-imap <C-h> <Esc><Left>i
+imap <C-k> <Esc><Up>a
+imap <C-h> <Left>
 imap <C-l> <Right>
-imap <C-j> <Esc><Down><Right>i
+imap <C-j> <Esc><Down>a
 
 inoremap ( ()<Esc>i
 inoremap " ""<Esc>i
