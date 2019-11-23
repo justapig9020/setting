@@ -5,13 +5,14 @@ set number
 set tags=./tags,./TAGS,tags;~,TAGS;~
 
 
-
 syntax on
 filetype indent on 
 imap <C-k> <Esc><Up>a
 imap <C-h> <Left>
 imap <C-l> <Right>
-imap <C-j> <Esc><Down>a
+imap <C-j> <Esc><Down>
+map  <S-t> <Esc>:TlistToggle<Cr>
+map f <Esc><C-]>
 
 inoremap ( ()<Esc>i
 inoremap " ""<Esc>i
@@ -19,6 +20,7 @@ inoremap {<CR> {<CR>}<Esc>ko
 
 set background=dark
 highlight clear
+
 
 if exists("syntax_on")
   syntax reset
