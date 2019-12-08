@@ -1,21 +1,21 @@
 ## Functions
-Auto switch tab to \t at Makefile
-Auto update ctags when saving file
+1. Auto switch tab to \t at Makefile  
+2. Auto update ctags when saving file  
  
 ## Hot key
-``Ctrl + I/J/K/L`` (@insert mode)  
+1. ``Ctrl + I/J/K/L`` (@insert mode)  
  - Up/Left/Down/Right  
 
-``Shift + l`` (@command mode)
+2. ``Shift + l`` (@command mode)
  - Show / hide function list  
 
-``f`` (@command mode)
+3. ``f`` (@command mode)
  - Find the definitoin  
 
-``F`` (@command mode)
+4. ``F`` (@command mode)
  - Back to reference  
 
 ## Command
-``Init``
+1. ``Init``
  - init git and ctags
 
