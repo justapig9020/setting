@@ -2,21 +2,40 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set number
-set tags=./tags,./TAGS,tags;~,TAGS;~
 
 
 syntax on
 filetype indent on 
-imap <C-k> <Esc><Up>a
-imap <C-h> <Left>
-imap <C-l> <Right>
-imap <C-j> <Esc><Down>
-map  <S-t> <Esc>:TlistToggle<Cr>
-map f <Esc><C-]>
 
+"" dir init
+command Init :!git init&&ctags -R
+
+"" Use \t as tab in Makefile
+autocmd BufReadPost Makefile,makefile,MakeFile :set expandtab&
+
+"" make up
 inoremap ( ()<Esc>i
 inoremap " ""<Esc>i
 inoremap {<CR> {<CR>}<Esc>ko
+
+"" cursor move
+imap <C-k> <Esc><Up>a
+imap <C-h> <Left>
+imap <C-l> <Right>
+imap <C-j> <Esc><Down>a
+
+"" ctags
+set tags=./tags,./TAGS,tags;~,TAGS;~
+map f <Esc><C-]>
+map F <C-t>
+autocmd BufWritePost *.c,*.h,*.py,*.cpp :!ctags -R
+
+"" taglist
+map  <S-l> <Esc>:TlistToggle<Cr>
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_Use_Right_Window=1
+set ut=100
 
 set background=dark
 highlight clear
