@@ -4,18 +4,18 @@
  
 ## Hot key
 1. ``Ctrl + I/J/K/L`` (@insert mode)  
- - Up/Left/Down/Right  
+    - Up/Left/Down/Right  
 
-2. ``Shift + l`` (@command mode)
- - Show / hide function list  
+2. ``Shift + l`` (@command mode)  
+    - Show / hide function list  
 
 3. ``f`` (@command mode)
- - Find the definitoin  
+    - Find the definitoin  
 
 4. ``F`` (@command mode)
- - Back to reference  
+    - Back to reference  
 
 ## Command
 1. ``Init``
- - init git and ctags
+    - init git and ctags
 
