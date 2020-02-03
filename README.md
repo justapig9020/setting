@@ -3,8 +3,8 @@
 2. Auto update ctags when saving file  
  
 ## Hot key
-1. ``Ctrl + I/J/K/L`` (@insert mode)  
-    - Up/Left/Down/Right  
+1. ``Ctrl + h/j/k/l`` (@insert mode)  
+    - Left/Down/UP/Right  
 
 2. ``Shift + l`` (@command mode)  
     - Show / hide function list  
