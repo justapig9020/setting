@@ -1,8 +1,8 @@
-# If you come from bash you might have to change your $PATH.
+#If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/justapig9020/.oh-my-zsh"
+export ZSH="/home/jup9020/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -172,5 +172,5 @@ echo "   ,,,,*/        .(,,,,*,,,,,,\e[90m(\e[93m,\e[90m**\e[93m,,,,,,,,,,*\e[35
 echo 
 echo
 
-
-set piip 192.168.50.176
+export opend=xdg-open
+source ~/.profile
