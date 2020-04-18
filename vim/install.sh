@@ -44,7 +44,7 @@ root_list="${root_list} ${home}/.vim/"
 # install Vundle (vim package manager)
 rm -rf ~/.vim/bundle/Vundle.vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim > /dev/null
-vim +PluginInstall +qall
+vim +PluginInstall +qall #inteall plugins 
 
 # 
 echo "root list: " ${root_list}
