@@ -14,17 +14,17 @@ fi
 echo "building up vim environment"
 
 cd $(dirname $0)
-dir=$(pwd) 
+pwd=$(pwd) 
 owner=$(stat -c '%U' $(pwd))
 home="/home/${owner}"
 
-echo "Dir: ${dir}"
+echo "Dir: ${pwd}"
 echo "Owner: ${owner}"
 echo "Home: ${home}"
 
 # set .vimrc
-echo  ${dir}
-ln -sf ${dir}/.vimrc ${home}/
+echo  ${pwd}
+ln -sf ${pwd}/.vimrc ${home}/
 root_list="${home}/.vimrc"
 echo "[INFO] vimrc setuped"
 
@@ -33,12 +33,12 @@ apt update
 apt install exuberant-ctags > /dev/null
 rm -rf ./taglist.vim
 git clone https://github.com/vim-scripts/taglist.vim.git > /dev/null
-root_list="${root_list} ${dir}/taglist.vim"
+root_list="${root_list} ${pwd}/taglist.vim"
 echo 
 
 # install taglist
-ln -sf ${dir}/taglist.vim/doc/taglist.txt  ~/.vim/doc/
-ln -sf ${dir}/taglist.vim/plugin/taglist.vim ~/.vim/plugin/
+ln -sf ${pwd}/taglist.vim/doc/taglist.txt  ~/.vim/doc/
+ln -sf ${pwd}/taglist.vim/plugin/taglist.vim ~/.vim/plugin/
 root_list="${root_list} ${home}/.vim/"
 
 # install Vundle (vim package manager)
@@ -46,7 +46,10 @@ rm -rf ~/.vim/bundle/Vundle.vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim > /dev/null
 vim +PluginInstall +qall #inteall plugins 
 
-# 
+# ================ For Rust ================ 
+
+# ========================================== 
+
 echo "root list: " ${root_list}
 for i in ${root_list}; do
     echo "reset ownership: ${i}"
