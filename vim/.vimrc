@@ -30,6 +30,9 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'rust-lang/rust.vim'
 Plugin 'racer-rust/vim-racer'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/nerdtree'
+Plugin 'mhinz/vim-startify'
+""Plugin 'honza/vim-snippets'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -55,8 +58,9 @@ set number
 set relativenumber
 let CLEAR_BG = 1
 
+"" high light
 syntax on
-filetype indent on 
+""filetype indent on 
 
 "" Use \t as tab in Makefile
 autocmd BufReadPost Makefile,makefile,MakeFile :set expandtab&
@@ -94,6 +98,19 @@ map f <Esc><C-]>
 map F <C-t>
 
 autocmd BufWritePost *.rs,*.c,*.h,*.py,*.cpp call UpdateCtags()
+
+"" NerdTree
+map <f2> :NERDTreeToggle<cr>
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
+let g:NERDTreeWinPos='left'
+let g:NERDTreeSize=20
+
+""Snips
+let g:UltiSnipsSnippetsDir=["/home/jup9020/.vim/bundle/vim-snippets/UltiSnips"]
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 "" taglist
 map  <S-l> <Esc>:TlistToggle<Cr>

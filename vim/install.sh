@@ -1,6 +1,18 @@
 #!/bin/bash
 
 # check permission
+ins_repo_to(){
+    ret=$(ls $2)
+    if [[ -z "$ret" ]]; then
+        echo "Installing $1 to $2"
+        git clone https://github.com/$1.git $2 > /dev/null
+    else
+        echo "$2 exist, updating"
+        pushd $2 > /dev/null
+        git pull
+        popd > /dev/pull
+    fi
+}
 
 if [[ "$UID" != "0" ]]; then
     echo "/===================  ERR  ================\\"
@@ -18,21 +30,22 @@ pwd=$(pwd)
 owner=$(stat -c '%U' $(pwd))
 home="/home/${owner}"
 
+echo "==== INFO ======"
 echo "Dir: ${pwd}"
 echo "Owner: ${owner}"
 echo "Home: ${home}"
+echo "================"
 
 # set .vimrc
+echo "[INFO] vimrc setup"
 echo  ${pwd}
 ln -sf ${pwd}/.vimrc ${home}/
 root_list="${home}/.vimrc"
-echo "[INFO] vimrc setuped"
 
 # clone taglist
 apt update
 apt install exuberant-ctags > /dev/null
-rm -rf ./taglist.vim
-git clone https://github.com/vim-scripts/taglist.vim.git > /dev/null
+ins_repo_to vim-scripts/taglist.vim ${pwd}/taglist.vim
 root_list="${root_list} ${pwd}/taglist.vim"
 echo 
 
@@ -42,9 +55,11 @@ ln -sf ${pwd}/taglist.vim/plugin/taglist.vim ~/.vim/plugin/
 root_list="${root_list} ${home}/.vim/"
 
 # install Vundle (vim package manager)
-rm -rf ~/.vim/bundle/Vundle.vim
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim > /dev/null
+ins_repo_to VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall #inteall plugins 
+pushd ~/.vim/bundle/Vundle.vim/YouCompleteMe/ > /dev/null
+./install --clang-completer
+./install --rust-completer
 
 # ================ For Rust ================ 
 
