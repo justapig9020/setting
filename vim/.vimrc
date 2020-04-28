@@ -65,6 +65,14 @@ syntax on
 "" Use \t as tab in Makefile
 autocmd BufReadPost Makefile,makefile,MakeFile :set expandtab&
 
+"" auto format space and tab before save↵
+command Cln :silent! 1,$s/\t/    /g | :silent! 1,$s/\ \+$//g
+autocmd BufWritePost *.c,*.h,*.py,*.cpp,*.sh :Cln
+
+"" show format character
+set listchars=eol:↵,tab:»·,trail:╳,extends:»,precedes:«
+set list
+
 "" make up
 inoremap ( ()<Esc>i
 inoremap " ""<Esc>i
